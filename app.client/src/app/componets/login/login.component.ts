@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -7,15 +7,12 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
   
-  type: string = "password";
-  isText: boolean = false;
-  eyeIcon: string = "fa-eye-slash";
+  inputType: string = "password";
+  eyeIcon: string = "fa fa-eye-slash";
 
   hideShowPass() {
-    this.isText = !this.isText;
-    this.isText ? this.eyeIcon = "fa-eye" : this.eyeIcon = "fa-eye-slash";
-    this.isText ? this.type = "text" : this.type = "password";
-  }
-
+    this.inputType = this.inputType === 'password' ? 'text' : 'password';
+    this.eyeIcon = this.inputType === 'password' ? 'fa fa-eye-slash' : 'fa fa-eye';
+  }  
   
 }
